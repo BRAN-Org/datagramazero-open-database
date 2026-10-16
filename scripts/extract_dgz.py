@@ -207,6 +207,13 @@ def parse_article_html(file_path: Path, folder_name: str) -> dict:
     if not title:
         title = f"Artigo {art_num:02d} ({header_meta['issue_label']})"
 
+    # Mapeamento de PDF original companheiro (edições 2012-2015)
+    pdf_url = None
+    for cand in [f"Artigo {art_num:02d}.pdf", f"Artigo {art_num}.pdf", f"Art_{art_num:02d}.pdf", f"art_{art_num:02d}.pdf"]:
+        if (file_path.parent / cand).exists():
+            pdf_url = f"https://github.com/BRAN-Org/datagramazero-open-database/raw/main/data/raw/dgz/{folder_name}/{cand}"
+            break
+
     return {
         "id": article_id,
         "title": title,
@@ -223,7 +230,7 @@ def parse_article_html(file_path: Path, folder_name: str) -> dict:
         "keywords": keywords,
         "keywords_en": keywords_en,
         "doi": "N/A",
-        "pdf_url": None,
+        "pdf_url": pdf_url,
         "url": f"https://github.com/BRAN-Org/datagramazero-open-database/blob/main/data/raw/{rel_path}",
         "source_file": rel_path,
         "provenance": {
