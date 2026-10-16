@@ -7,9 +7,6 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
-    "start:ebbc": "DATASET_DIR=mock/ebbc/data CONFIG_PATH=mock/ebbc/dataset.config.json node server.js",
-    "dev:ebbc": "DATASET_DIR=mock/ebbc/data CONFIG_PATH=mock/ebbc/dataset.config.json node --watch server.js",
-    "data:ebbc": "DATASET_DIR=mock/ebbc/data CONFIG_PATH=mock/ebbc/dataset.config.json node scripts/validate_dataset.js",
     "test": "node --test tests/unit.test.js tests/api.test.js",
     "data:extract": "python scripts/extract_dgz.py",
     "data:convert": "node scripts/convert_csv_to_json.js",

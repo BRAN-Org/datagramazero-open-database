@@ -30,7 +30,7 @@ jobs:
           node --check public/js/pure-svg-charts.bundle.js
 
   dataset-validation:
-    name: Dataset Schema & EBBC Mock Validation
+    name: Dataset Schema Validation
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.2.2
@@ -39,15 +39,8 @@ jobs:
           node-version: 20.x
           cache: 'npm'
       - run: npm ci
-      - name: Validate Default Template Dataset
+      - name: Validate DataGramaZero Dataset
         run: npm run data:validate
-      - name: Validate EBBC OpenData Mock Dataset (643 Records)
-        run: |
-          if [ -d "mock/ebbc" ]; then
-            npm run data:ebbc
-          else
-            echo "Diretorio mock/ebbc nao existe neste repositorio. Ignorando."
-          fi
 
   unit-and-api-tests:
     name: Unit & REST API Tests (Node ${{ matrix.node-version }})
