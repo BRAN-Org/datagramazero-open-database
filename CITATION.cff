@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this dataset or software, please cite it as below."
+title: "DataGramaZero Open Database: Acervo Completo e Metadados Estruturados da Revista de Ciência da Informação (1999-2015)"
+version: 1.0.0
+date-released: 2026-10-16
+url: "https://github.com/BRAN-Org/datagramazero-open-database"
+repository-code: "https://github.com/BRAN-Org/datagramazero-open-database"
+license: GPL-3.0-or-later
+authors:
+  - name: "Aldo de Albuquerque Barreto"
+  - name: "DataGramaZero"
+  - name: "BRAN Org"
+    website: "https://github.com/BRAN-Org"
+keywords:
+  - open-data
+  - open-access
+  - information-science
+  - ciencia-da-informacao
+  - datagramazero
+  - dgz
+  - aldo-barreto
+  - digital-preservation
+  - fair-data

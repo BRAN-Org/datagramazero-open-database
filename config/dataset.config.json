@@ -3,46 +3,46 @@
     "name": "BRAN Org",
     "url": "https://github.com/BRAN-Org",
     "logo": "https://avatars.githubusercontent.com/u/328064865?v=4",
-    "institutionName": "Faculdade / Periódico / Evento Científico",
-    "githubUrl": "https://github.com/BRAN-Org/bran-web-database-template",
+    "institutionName": "DataGramaZero - Revista de Ciência da Informação (1999-2015)",
+    "githubUrl": "https://github.com/BRAN-Org/datagramazero-open-database",
     "doiUrl": "",
-    "issuesUrl": "https://github.com/BRAN-Org/bran-web-database-template/issues"
+    "issuesUrl": "https://github.com/BRAN-Org/datagramazero-open-database/issues"
   },
   "dataset": {
-    "title": "BRAN Academic Database Template",
-    "description": "Infraestrutura aberta de dados acadêmicos e científicos. Este portal disponibiliza acervos públicos de anais, edições e periódicos em formatos limpos e padronizados, com API REST pública e ferramentas para análise cientométrica e bibliométrica no Brasil.",
+    "title": "DataGramaZero Open Database",
+    "description": "Base de dados bibliométrica aberta e acervo histórico completo dos 466 artigos e ensaios publicados na DataGramaZero - Revista de Ciência da Informação (1999-2015), periódico pioneiro de acesso aberto fundado pelo Prof. Aldo de Albuquerque Barreto e disponibilizado pela BRAN Org sob princípios FAIR e BOAI.",
     "version": "1.0.0",
     "doi": "",
     "license": "Code: GNU GPLv3 | Data: CC BY-NC-SA 4.0 (Não-Comercial & Sem Treino Comercial de IA)",
     "entityName": "articles",
     "singularName": "Artigo",
     "pluralName": "Artigos",
-    "primaryKey": "doi",
-    "secondaryKey": "id"
+    "primaryKey": "id",
+    "secondaryKey": "doi"
   },
   "schema": {
-    "searchFields": ["title", "abstract", "authors", "keywords", "section", "issue"],
+    "searchFields": ["title", "title_en", "abstract", "abstract_en", "authors", "keywords", "keywords_en", "issue", "section"],
     "facets": [
-      { "key": "year", "label": "Ano / Edição", "type": "number", "multi": true },
+      { "key": "year", "label": "Ano de Publicação", "type": "number", "multi": true, "targetField": "year" },
+      { "key": "volume", "label": "Volume", "type": "number", "targetField": "volume" },
       { "key": "author", "label": "Autor / Pesquisador", "type": "string", "targetField": "authors" },
-      { "key": "section", "label": "Eixo Temático / Seção", "type": "string", "targetField": "section" },
-      { "key": "keyword", "label": "Palavra-chave / Tópico", "type": "string", "targetField": "keywords" }
+      { "key": "keyword", "label": "Palavra-chave / Tópico", "type": "string", "targetField": "keywords" },
+      { "key": "issue", "label": "Edição / Fascículo", "type": "string", "targetField": "issue" }
     ],
     "sortFields": [
-      { "key": "year", "label": "Ano / Edição" },
+      { "key": "year", "label": "Ano" },
       { "key": "title", "label": "Título" },
-      { "key": "doi", "label": "DOI" }
+      { "key": "volume", "label": "Volume" }
     ]
   },
   "stats": {
     "topLists": [
-      { "key": "topAuthors", "label": "Principais Autores / Pesquisadores", "sourceField": "authors", "limit": 10 },
-      { "key": "topKeywords", "label": "Palavras-chave & Tópicos", "sourceField": "keywords", "limit": 10 },
-      { "key": "topSections", "label": "Eixos Temáticos / Seções", "sourceField": "section", "limit": 10 }
+      { "key": "topAuthors", "label": "Principais Autores", "sourceField": "authors", "limit": 10 },
+      { "key": "topKeywords", "label": "Palavras-chave Mais Frequentes", "sourceField": "keywords", "limit": 10 }
     ],
     "breakdowns": [
-      { "key": "yearDistribution", "label": "Distribuição por Ano / Edição", "sourceField": "year" },
-      { "key": "sectionBreakdown", "label": "Distribuição por Eixo Temático", "sourceField": "section" }
+      { "key": "yearDistribution", "label": "Distribuição por Ano (1999-2015)", "sourceField": "year" },
+      { "key": "volumeBreakdown", "label": "Distribuição por Volume", "sourceField": "volume" }
     ]
   }
 }
