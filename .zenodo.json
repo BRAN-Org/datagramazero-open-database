@@ -1,0 +1,45 @@
+{
+  "title": "DataGramaZero Open Database: Acervo Completo e Metadados Estruturados da Revista de Ciência da Informação (1999-2015)",
+  "description": "<p>Base de dados bibliométrica aberta e acervo histórico completo dos 466 artigos e ensaios publicados na DataGramaZero - Revista de Ciência da Informação (1999-2015), periódico pioneiro de acesso aberto fundado pelo Prof. Aldo de Albuquerque Barreto e preservado digitalmente em parceria com o CEDAP/UFRGS e BRAN Org sob princípios FAIR e BOAI em formatos JSON, CSV, BibTeX, RIS e SQLite.</p>",
+  "upload_type": "dataset",
+  "creators": [
+    {
+      "name": "Barreto, Aldo de Albuquerque",
+      "affiliation": "DataGramaZero / IBICT"
+    },
+    {
+      "name": "DataGramaZero - Revista de Ciência da Informação",
+      "type": "organization"
+    },
+    {
+      "name": "BRAN Org",
+      "affiliation": "Brazilian Research Archive Network"
+    }
+  ],
+  "access_right": "open",
+  "license": "cc-by-nc-sa-4.0",
+  "keywords": [
+    "open-data",
+    "open-access",
+    "information-science",
+    "ciencia-da-informacao",
+    "datagramazero",
+    "aldo-barreto",
+    "digital-preservation",
+    "fair-data",
+    "brazil"
+  ],
+  "communities": [
+    {
+      "identifier": "bran-org"
+    }
+  ],
+  "publication_date": "2026-10-22",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/BRAN-Org/datagramazero-open-database",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}
