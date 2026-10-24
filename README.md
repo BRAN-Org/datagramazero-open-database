@@ -15,7 +15,7 @@ Base de dados bibliométrica aberta e acervo histórico completo dos 466 artigos
 
 ## Visão Geral da Base de Dados
 
-- **Instituição / Evento**: DataGramaZero - Revista de Ciência da Informação (1999-2015)
+- **Acervo / Periódico**: DataGramaZero - Revista de Ciência da Informação (1999-2015)
 - **Entidade Principal**: `articles`
 - **Total de Registros**: Configurado e indexado dinamicamente
 - **Licença dos Dados**: Code: GNU GPLv3 | Data: CC BY-NC-SA 4.0 (Não-Comercial & Sem Treino Comercial de IA)
@@ -106,13 +106,13 @@ npm run data:validate
 Se você utilizar estes dados em pesquisas acadêmicas ou software, por favor cite:
 
 ```bibtex
-@misc{articles_2026,
- author = {DataGramaZero - Revista de Ciência da Informação (1999-2015) and BRAN Org},
- title = {DataGramaZero Open Database},
- year = {2026},
- publisher = {Zenodo},
- doi = {{{DATASET_DOI}}},
- url = {{{DOI_URL}}}
+@misc{datagramazero_open_database_2026,
+  author = {BRAN Org},
+  title = {DataGramaZero Open Database: Acervo Completo e Metadados Estruturados da Revista de Ciência da Informação (1999-2015)},
+  year = {2026},
+  publisher = {Zenodo},
+  doi = {10.5281/zenodo.23593504},
+  url = {https://doi.org/10.5281/zenodo.23593504}
 }
 ```
 
@@ -135,11 +135,11 @@ Se você utilizar estes dados em pesquisas acadêmicas ou software, por favor ci
 | ![Classificação Verde](https://img.shields.io/badge/Classifica%C3%A7%C3%A3o-Verde-brightgreen.svg?style=for-the-badge) | **100% Fiel à Fonte Primária com Integridade Criptográfica**. Acervo histórico integral cobrindo os 17 anos (1999-2015) e 97 edições da revista, resgatado a partir da coleção original cedida pelo Prof. Aldo de Albuquerque Barreto ao CEDAP/UFRGS (`handle/20.500.11959/1269`). Todos os 466 artigos foram catalogados com hash SHA-256 de proveniência preservada. |
 
 > **Nota Metodológica Oficial:** 
-> *A BRAN preserva a fidelidade estrita à fonte de origem e nunca inventa dados inexistentes. Discrepâncias e lacunas identificadas nos portais oficiais são registradas nos relatórios de auditoria e tratadas via averiguação ativa e contato direto com as instituições organizadoras.*
+> *A BRAN preserva a fidelidade estrita à fonte de origem e nunca inventa dados inexistentes. Discrepâncias e lacunas identificadas nos acervos de origem são registradas e tratadas tecnicamente nos relatórios de auditoria.*
 
 ---
 
 <p align="center">
- Mantido pela <strong><a href="https://github.com/BRAN-Org">BRAN Org</a></strong> e <strong>DataGramaZero - Revista de Ciência da Informação (1999-2015)</strong>
+  Mantido pela <strong><a href="https://github.com/BRAN-Org">BRAN Org</a></strong>
 </p>
 

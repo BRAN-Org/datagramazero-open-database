@@ -8,8 +8,6 @@ url: "https://github.com/BRAN-Org/datagramazero-open-database"
 repository-code: "https://github.com/BRAN-Org/datagramazero-open-database"
 license: GPL-3.0-or-later
 authors:
-  - name: "Aldo de Albuquerque Barreto"
-  - name: "DataGramaZero"
   - name: "BRAN Org"
     website: "https://github.com/BRAN-Org"
 keywords:
