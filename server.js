@@ -35,9 +35,8 @@ app.use((req, res) => {
   res.sendFile(join(__dirname, 'public/index.html'));
 });
 
-// Inicializar Servidor em modo local (apenas quando executado diretamente)
-const isDirectRun = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
-if (isDirectRun && process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
+// Inicializar Servidor em modo local
+if (process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
   app.listen(PORT, () => {
     const config = getDatasetConfig();
     console.log(`=======================================================`);
