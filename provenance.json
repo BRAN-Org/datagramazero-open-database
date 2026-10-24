@@ -5,7 +5,7 @@
   "scraped_at": "2026-10-16T12:12:36Z",
   "extractor_name": "dgz_harvester_v1",
   "extractor_version": "1.0.0",
-  "raw_data_sha256": "fb994b5e86e9c31c8bf5a409ca3c3c30845a6f5e45cc10e645d660386236603d",
+  "raw_data_sha256": "a82e78a81f4f79001bfc998d6d1c0dba48a350b0668f9da25c6891acb87e80a1",
   "health_level": "GREEN",
   "total_records": 466,
   "missing_doi_count": 466,
