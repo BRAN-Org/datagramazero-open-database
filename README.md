@@ -2,6 +2,7 @@
 
 <p align="center">
   <a href="https://doi.org/10.5281/zenodo.23593504"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.23593504.svg" alt="Zenodo DOI"></a>
+  <a href="#️-confiabilidade-e-governança"><img src="https://img.shields.io/badge/Confiabilidade-Auditado%20e%20Validado-brightgreen?style=for-the-badge" alt="Confiabilidade"></a>
   <a href="https://www.go-fair.org/fair-principles/"><img src="https://img.shields.io/badge/FAIR-Compliant-green.svg?style=for-the-badge" alt="FAIR Principles"></a>
   <a href="https://www.budapestopenaccessinitiative.org/"><img src="https://img.shields.io/badge/BOAI-Signatory-orange.svg?style=for-the-badge" alt="BOAI Signatory"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/Data_License-CC_BY--NC--SA_4.0-lightgrey.svg?style=for-the-badge" alt="CC BY-NC-SA 4.0"></a>
@@ -14,8 +15,13 @@ Base de dados bibliométrica aberta e acervo histórico completo dos 466 artigos
 
 ## 📊 Acervo em Números
 
+> [!NOTE]
+> **Status de Confiabilidade:** 🟢 **Auditado e Validado**  
+> 📌 **Por que este acervo recebeu esta nota:** Acervo histórico completo e definitivo cobrindo toda a existência do periódico (1999–2015: 16 volumes, 97 edições). Todos os 466 artigos e ensaios científicos foram catalogados com hash SHA-256 e conferência individualizada. A preservação digital inclui a coleção integral de 1.765 arquivos históricos (HTML e PDFs originais) espelhados a partir do CEDAP/UFRGS e conferidos contra os registros do IBICT.
+
 | Métrica / Atributo | Detalhes do Acervo |
 | :--- | :--- |
+| **Confiabilidade dos Dados** | 🟢 **Auditado e Validado** ([Ver critérios e auditoria](#️-confiabilidade-e-governança)) |
 | **Período Histórico** | 1999–2015 (16 Volumes, 97 Edições) |
 | **Total de Artigos** | **466 trabalhos científicos catalogados** |
 | **Textos Completos (PDF)** | Acervo histórico integral (466 artigos e ensaios, 1.765 arquivos preservados via CEDAP/UFRGS) |
@@ -118,9 +124,21 @@ Se você utilizar estes dados em pesquisas acadêmicas, teses ou softwares, por 
 
 ## 🛡️ Confiabilidade e Governança
 
-- **Classificação**: 🟢 **Auditado e Validado** — Dados auditados e validados com rigor metodológico, integridade criptográfica SHA-256 e conferência direta contra as publicações de origem.
-- **Auditoria Independente**: Verificação e catalogação executada com rigor metodológico, conferência contra publicações e integridade criptográfica.
-- **Calendário de Curadoria**: Acompanhe os ciclos de atualização no repositório [BRAN-Org/.github](https://github.com/BRAN-Org/.github/blob/main/CALENDAR.md).
+<p align="center">
+  <a href="https://github.com/BRAN-Org/.github#níveis-de-confiabilidade-dos-dados">
+    <img src="https://img.shields.io/badge/Confiabilidade-Auditado%20e%20Validado-brightgreen?style=for-the-badge" alt="Selo de Confiabilidade">
+  </a>
+</p>
+
+| Dimensão de Governança | Avaliação da Curadoria Independente |
+| :--- | :--- |
+| **Classificação Oficial** | 🟢 **Auditado e Validado** |
+| **Diagnóstico Técnico (Por que recebeu esta nota)** | Acervo histórico completo e definitivo cobrindo toda a existência do periódico (1999–2015: 16 volumes, 97 edições). Todos os 466 artigos e ensaios científicos foram catalogados com hash SHA-256 e conferência individualizada. A preservação digital inclui a coleção integral de 1.765 arquivos históricos (HTML e PDFs originais) espelhados a partir do CEDAP/UFRGS e conferidos contra os registros do IBICT. |
+| **Método de Auditoria** | Verificação independente com hash criptográfico SHA-256 por arquivo, conferência direta contra publicações originais e rastreabilidade estrita. |
+| **Ciclo de Atualização** | Acompanhe as revisões periódicas no repositório [BRAN-Org/.github](https://github.com/BRAN-Org/.github/blob/main/CALENDAR.md). |
+
+> [!IMPORTANT]
+> **Transparência da Curadoria:** A BRAN Org preserva a fidelidade estrita à fonte primária e não inventa dados ou metadados inexistentes. Lacunas ou inconsistências presentes na origem são documentadas tecnicamente para assegurar integridade em análises cienciométricas.
 
 ---
 
