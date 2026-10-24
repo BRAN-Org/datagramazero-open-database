@@ -1,14 +1,16 @@
 {
-  "name": "datagramazero-open-database",
-  "version": "1.0.0",
-  "description": "Base de dados bibliométrica aberta e API REST pública do acervo histórico da DataGramaZero - Revista de Ciência da Informação (1999-2015).",
+  "name": "bran-web-database-template",
+  "version": "1.5.0",
+  "description": "Template leve e reproduzível para APIs REST públicas e Dashboards de bases de dados acadêmicas da BRAN Org.",
   "main": "server.js",
   "type": "module",
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
-    "test": "node --test tests/unit.test.js tests/api.test.js",
-    "data:extract": "python scripts/extract_dgz.py",
+    "start:ebbc": "DATASET_DIR=mock/ebbc/data CONFIG_PATH=mock/ebbc/dataset.config.json node server.js",
+    "dev:ebbc": "DATASET_DIR=mock/ebbc/data CONFIG_PATH=mock/ebbc/dataset.config.json node --watch server.js",
+    "data:ebbc": "DATASET_DIR=mock/ebbc/data CONFIG_PATH=mock/ebbc/dataset.config.json node scripts/validate_dataset.js",
+    "test": "NODE_ENV=test node --test tests/unit.test.js tests/api.test.js",
     "data:convert": "node scripts/convert_csv_to_json.js",
     "data:validate": "node scripts/validate_dataset.js",
     "init:event": "node scripts/init_event.js"
@@ -18,10 +20,7 @@
     "bran-org",
     "api",
     "academic-data",
-    "datagramazero",
-    "aldo-barreto",
-    "ciencia-da-informacao",
-    "digital-preservation",
+    "database-template",
     "express"
   ],
   "author": "BRAN Org",
