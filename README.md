@@ -2,29 +2,29 @@
 
 <p align="center">
   <a href="https://doi.org/10.5281/zenodo.23593504"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.23593504.svg" alt="Zenodo DOI"></a>
-  <a href="#️-confiabilidade-e-governança"><img src="https://img.shields.io/badge/Confiabilidade-Auditado%20e%20Validado-brightgreen?style=for-the-badge" alt="Confiabilidade"></a>
+  <a href="#️-confiabilidade-e-governança"><img src="https://img.shields.io/badge/Confiabilidade-Em%20Averigua%C3%A7%C3%A3o-orange?style=for-the-badge" alt="Confiabilidade"></a>
   <a href="https://www.go-fair.org/fair-principles/"><img src="https://img.shields.io/badge/FAIR-Compliant-green.svg?style=for-the-badge" alt="FAIR Principles"></a>
   <a href="https://www.budapestopenaccessinitiative.org/"><img src="https://img.shields.io/badge/BOAI-Signatory-orange.svg?style=for-the-badge" alt="BOAI Signatory"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/Data_License-CC_BY--NC--SA_4.0-lightgrey.svg?style=for-the-badge" alt="CC BY-NC-SA 4.0"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/Code_License-GPLv3-blue.svg?style=for-the-badge" alt="GPLv3"></a>
 </p>
 
-Base de dados bibliométrica aberta e acervo histórico completo dos 466 artigos e ensaios publicados na DataGramaZero - Revista de Ciência da Informação (1999-2015), periódico pioneiro de acesso aberto fundado pelo Prof. Aldo de Albuquerque Barreto e disponibilizado pela BRAN Org sob princípios FAIR e BOAI.
+Base de dados bibliométrica aberta e acervo histórico completo dos 485 artigos e ensaios publicados na DataGramaZero - Revista de Ciência da Informação (1999-2015), periódico pioneiro de acesso aberto fundado pelo Prof. Aldo de Albuquerque Barreto e disponibilizado pela BRAN Org sob princípios FAIR e BOAI.
 
 ---
 
 ## 📊 Acervo em Números
 
 > [!NOTE]
-> **Status de Confiabilidade:** 🟢 **Auditado e Validado**  
-> 📌 **Por que este acervo recebeu esta nota:** Acervo histórico completo e definitivo cobrindo toda a existência do periódico (1999–2015: 16 volumes, 97 edições). Todos os 466 artigos e ensaios científicos foram catalogados com hash SHA-256 e conferência individualizada. A preservação digital inclui a coleção integral de 1.765 arquivos históricos (HTML e PDFs originais) espelhados a partir do CEDAP/UFRGS e conferidos contra os registros do IBICT.
+> **Status de Confiabilidade:** 🟠 **Em Averiguação**  
+> 📌 **Por que este acervo recebeu esta nota:** Acervo em processo de auditoria cruzada contra a Base ABCDM (FCI/UnB) para reconciliação de fascículos com lacunas físicas identificadas no dump original do CEDAP/UFRGS (especialmente edições de 2013 e 2014) e saneamento de metadados multilíngues.
 
 | Métrica / Atributo | Detalhes do Acervo |
 | :--- | :--- |
-| **Confiabilidade dos Dados** | 🟢 **Auditado e Validado** ([Ver critérios e auditoria](#️-confiabilidade-e-governança)) |
-| **Período Histórico** | 1999–2015 (16 Volumes, 97 Edições) |
-| **Total de Artigos** | **466 trabalhos científicos catalogados** |
-| **Textos Completos (PDF)** | Acervo histórico integral (466 artigos e ensaios, 1.765 arquivos preservados via CEDAP/UFRGS) |
+| **Confiabilidade dos Dados** | 🟠 **Em Averiguação** ([Ver critérios e auditoria](#️-confiabilidade-e-governança)) |
+| **Período Histórico** | 1999–2015 (16 Volumes, 96 Edições) |
+| **Total de Artigos** | **485 trabalhos científicos catalogados** |
+| **Textos Completos (PDF)** | Acervo histórico integral (485 artigos e ensaios, com preservação via CEDAP/UFRGS e reconciliação FCI/UnB) |
 | **Formatos Estruturados** | SQLite3 (`.sqlite`), CSV UTF-8 BOM, JSON, BibTeX (`.bib`), RIS (`.ris`) |
 | **Curadoria & Proveniência** | Curadoria independente com integridade criptográfica (hash SHA-256) pela [BRAN Org](https://github.com/BRAN-Org) |
 | **Licença dos Dados** | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) (Uso acadêmico/não-comercial; vedada ingestão para IA comercial) |
