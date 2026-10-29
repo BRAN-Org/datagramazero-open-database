@@ -8,7 +8,7 @@
   "raw_data_sha256": "a6a8fe5aece32715243a2c0f9d95a98be493aba57590c176679501c57ccd4bec",
   "health_level": "ORANGE",
   "total_records": 485,
-  "missing_doi_count": 466,
+  "missing_doi_count": 485,
   "missing_abstract_count": 10,
   "notes": "Acervo histórico consolidado e higienizado da DataGramaZero - Revista de Ciência da Informação (1999-2015), contendo 96 edições em 16 volumes, resgatado a partir do arquivo original doado pelo Prof. Aldo de Albuquerque Barreto para preservação digital no CEDAP/UFRGS e reconciliado com a Base ABCDM da Faculdade de Ciência da Informação (FCI/UnB)."
 }
