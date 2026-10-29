@@ -24,7 +24,7 @@ if sys.platform == "win32":
 BASE_DIR = Path(__file__).resolve().parent.parent
 RAW_DIR = BASE_DIR / "data" / "raw" / "dgz"
 OUTPUT_JSON = BASE_DIR / "data" / "datagramazero_articles.json"
-CURATED_FALLBACK = BASE_DIR / "data" / "curated_fallback.json"
+CURATED_FALLBACK = BASE_DIR / "scripts" / "curated_fallback.json"
 
 MONTH_MAP = {
     "fev": ("fevereiro", 1),
