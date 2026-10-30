@@ -492,5 +492,75 @@
       "abcdm_reg": "11189",
       "notes": "Artigo do fascículo histórico com arquivo ausente no acervo CEDAP/UFRGS, reconciliado a partir dos metadados catalogados pela FCI/UnB (TCC Denise Andrade / Prof. Jayme Leiro)."
     }
+  },
+  {
+    "id": "dgz-v08-n03-a03",
+    "title": "O ciberespaço: o termo, a definição e o conceito",
+    "title_en": null,
+    "authors": [
+      "Silvana Drumond Monteiro"
+    ],
+    "year": 2007,
+    "volume": 8,
+    "number": 3,
+    "issue": "v.8, n.3 (junho/2007)",
+    "month": "junho",
+    "section": "Artigo",
+    "abstract": "Busca na Literatura, ciência e Filosofia a sintaxe, a semântica e pragmática, ou o termo, a definição e o conceito de ciberespaço, respectivamente. Por um lado, a criação do termo localiza-se na Literatura, mas sua dimensão existencial situa-se na extensão ou denotação das definições contidas na ciência sobre o mesmo por outro, o conceito de máquina abstrata o antecede, lança seu sobrevôo nesse objeto, mas não exclusivamente nele, de forma intencional, conotando-o. Desse modo, a Arte está mais próxima da Filosofia, no tocante à criação de conceitos. Conclui-se que o ciberespaço é um ambiente que nos permite inúmeras possibilidades de mundo \"real\". É um universo virtual, plástico, fluido, carregado de devires. O ciberespaço, enfim, é uma grande máquina abstrata, porque semiótica, mas também social, onde se realizam não somente trocas simbólicas, mas transações econômicas, comerciais, novas práticas comunicacionais, relações sociais, afetivas e, sobretudo, novos agenciamentos cognitivos. Apresenta também, algumas categorias topográficas do ciberespaço. Percebe-se que os autores empregados no estudo do ciberespaço situam-se nas teorias pós-modernas, visto que o projeto moderno não contempla conceitos como a imaterialidade e desterritorialização, novos desafios impostos pelas Tecnologias da Informação e Comunicação.",
+    "abstract_en": null,
+    "keywords": [
+      "ciberespaço",
+      "conceito",
+      "máquina abstrata",
+      "pós-moderno"
+    ],
+    "keywords_en": [],
+    "doi": "N/A",
+    "pdf_url": null,
+    "url": "https://fci.unb.br/2026/04/23/dados-abcdm/",
+    "source_file": "dgz/jun07/curated_abcdm_04265.json",
+    "art_order": 3,
+    "provenance": {
+      "source": "Base ABCDM - Faculdade de Ciência da Informação (FCI/UnB)",
+      "source_url": "https://fci.unb.br/2026/04/23/dados-abcdm/",
+      "abcdm_reg": "04265",
+      "notes": "Artigo do fascículo histórico com arquivo Art_03 ausente no acervo CEDAP/UFRGS, reconciliado a partir dos metadados catalogados pela FCI/UnB (TCC Denise Andrade / Prof. Jayme Leiro)."
+    }
+  },
+  {
+    "id": "dgz-v16-n05-a01",
+    "title": "A instantaneidade da informação",
+    "title_en": null,
+    "authors": [
+      "Wagner Junqueira de Araújo",
+      "Júlio Afonso Sá de Pinho",
+      "Flávio Ribeiro Córdula"
+    ],
+    "year": 2015,
+    "volume": 16,
+    "number": 5,
+    "issue": "v.16, n.5 (outubro/2015)",
+    "month": "outubro",
+    "section": "Artigo",
+    "abstract": "Este artigo reflete como as tecnologias da informação e comunicações influenciam na forma e na velocidade da disseminação de informação para a sociedade. O advento da Internet é o grande responsável por muitas das mudanças no que tange à comunicação e ao fluxo de informação que passou a integrá-la diária, instantânea e quase incessantemente. Discorre sobre o volume e a velocidade da produção de informação e questiona a qualidade desta. A evolução das tecnologias da informação permite abordagens que podem considerá-las ora vantajosas, ora desvantajosas. Não obstante, apesar das infinitas possibilidades que a Internet e os demais meios de comunicação oferecem aos seus usuários e a suposta democratização e liberdade no uso da informação dela advinda, este artigo aborda temas que discorrem sobre a existência ou não de uma sociedade mais informada e inteligente. Por fim, verifica-se que o acesso à informação existe, contudo a qualidade deste e principalmente da informação acessada é que são fatores reais que norteiam a evolução da sociedade.",
+    "abstract_en": null,
+    "keywords": [
+      "instantaneidade da informação",
+      "internet",
+      "tecnologia da informação",
+      "disseminação da informação"
+    ],
+    "keywords_en": [],
+    "doi": "N/A",
+    "pdf_url": null,
+    "url": "https://fci.unb.br/2026/04/23/dados-abcdm/",
+    "source_file": "dgz/out15/curated_abcdm_11205.json",
+    "art_order": 1,
+    "provenance": {
+      "source": "Base ABCDM - Faculdade de Ciência da Informação (FCI/UnB)",
+      "source_url": "https://fci.unb.br/2026/04/23/dados-abcdm/",
+      "abcdm_reg": "11205",
+      "notes": "Artigo do fascículo histórico com arquivo Art_01 ausente no acervo CEDAP/UFRGS (que só possuía Art_02 a Art_04), reconciliado a partir dos metadados catalogados pela FCI/UnB (TCC Denise Andrade / Prof. Jayme Leiro)."
+    }
   }
 ]

@@ -88,12 +88,14 @@ def split_authors(author_str: str) -> list:
     cleaned = re.sub(r'^(?:por|by)\s+', '', cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r'\s*\(\*?\)\s*', '', cleaned)
     cleaned = re.sub(r'\s*\[[\*\d]+\]\s*', '', cleaned)
-    parts = re.split(r'\s*(?:;|\be\b|\band\b|&)\s*', cleaned)
+    parts = re.split(r'\s*(?:;|,|\be\b|\band\b|&)\s*', cleaned)
     authors = []
     for p in parts:
         p = clean_html_text(p)
         p = re.sub(r'^(?:por|by)\s+', '', p, flags=re.IGNORECASE).strip()
-        if len(p) > 2 and not p.lower().startswith(('resumo', 'resumen', 'abstract', 'autor')):
+        p = p.rstrip(',. ')
+        # Filtra tokens espúrios, cabeçalhos ou referências bibliográficas com anos
+        if len(p) > 2 and not p.lower().startswith(('resumo', 'resumen', 'abstract', 'autor')) and not re.search(r'\b\d{4}\b', p):
             authors.append(p)
     return authors
 
@@ -106,9 +108,10 @@ def clean_title(title_raw: str) -> str:
     t = re.sub(r'\s*\[[\*\d]+\]\s*$', '', t)
     # Remove vazamento de Resumo / Resumen
     t = re.sub(r'\s+Resum(?:o|en):?.*$', '', t, flags=re.IGNORECASE)
-    # Remove vazamento de 'por [Autor]' no final do título
-    t = re.sub(r'\s+(?:por|by)\s+[A-ZÀ-Ú].*$', '', t, flags=re.IGNORECASE)
     t = re.sub(r'[\*\[\]]+$', '', t).strip()
+    # Deduplica metades idênticas espelhadas no HTML (ex: "Arte e imagem...Arte e imagem...")
+    if len(t) % 2 == 0 and t[:len(t)//2] == t[len(t)//2:]:
+        t = t[:len(t)//2].strip()
     return t
 
 def parse_article_html(file_path: Path, folder_name: str) -> dict:
@@ -127,36 +130,49 @@ def parse_article_html(file_path: Path, folder_name: str) -> dict:
     art_match = re.search(r'art[_-]?(\d+)', file_path.name, re.IGNORECASE)
     art_num = int(art_match.group(1)) if art_match else 1
 
+    # Isola o cabeçalho antes da seção de Resumo para evitar vazamento de dados do corpo/bibliografia
+    resumo_pos_match = re.search(r'<b>\s*Resum(?:o|en)', html, re.I)
+    head_html = html[:resumo_pos_match.start()] if resumo_pos_match else html
+    soup_head = BeautifulSoup(head_html, "html.parser")
     soup = BeautifulSoup(html, "html.parser")
 
     # 1. Título em Português / Espanhol e Título em Inglês
     title = ""
     title_en = None
 
-    # Tenta localizar blocos centrais onde os títulos ficam
-    centers = soup.find_all(["center", "p"], align=re.compile(r'center', re.I))
-    if not centers:
-        centers = soup.find_all("center")
-
-    for c in centers:
-        # Busca <b> para título principal
-        b_tags = c.find_all("b")
-        for b in b_tags:
-            b_text = clean_title(b.get_text())
-            if len(b_text) > 8 and not b_text.lower().startswith(('datagramazero', 'artigo', 'v.', 'n.')):
-                title = b_text
-                break
-        if title:
-            # Busca <i> para título em inglês
+    # Tenta localizar blocos centrais onde os títulos ficam no cabeçalho
+    candidates = soup_head.find_all(lambda tag: tag.name in ["center", "p", "div"] and (tag.name == "center" or tag.get("align", "").lower() == "center"))
+    for c in candidates:
+        b_list = c.find_all(["b", "strong"])
+        cand_b = []
+        for b in b_list:
+            bt = clean_title(b.get_text())
+            if len(bt) > 5 and not bt.lower().startswith(('datagramazero', 'artigo', 'v.', 'n.')):
+                cand_b.append(bt)
+        if cand_b:
+            title = clean_title(" ".join(cand_b))
+            # Busca título em inglês em <i> dentro do bloco
             i_tags = c.find_all("i")
-            for i in i_tags:
-                i_text = clean_title(i.get_text())
-                if len(i_text) > 8 and i_text != title and not i_text.lower().startswith(('datagramazero', 'artigo', 'v.')):
-                    title_en = i_text
+            for it in i_tags:
+                it_txt = clean_title(it.get_text())
+                if len(it_txt) > 8 and it_txt != title and not it_txt.lower().startswith(('datagramazero', 'artigo', 'v.')):
+                    title_en = it_txt
                     break
             break
 
-    # Fallback se não achou título em tags de centro
+    # Fallback 1: span com font-weight negrito/700 dentro de bloco central
+    if not title:
+        for c in candidates:
+            spans = c.find_all(lambda t: t.name == "span" and ("bold" in t.get("style", "").lower() or "700" in t.get("style", "")))
+            for sp in spans:
+                spt = clean_title(sp.get_text())
+                if len(spt) > 8 and not spt.lower().startswith(('datagramazero', 'artigo')):
+                    title = spt
+                    break
+            if title:
+                break
+
+    # Fallback 2: stripped strings após <hr>
     if not title:
         m = re.search(r'<hr[^>]*>(.*?)(?:<b>\s*Resum|<p>\s*<b>\s*Resum)', html, re.I | re.S)
         if m:
@@ -167,7 +183,7 @@ def parse_article_html(file_path: Path, folder_name: str) -> dict:
                 if len(lines) > 1 and not lines[1].lower().startswith(('por ', 'by ')):
                     title_en = lines[1]
 
-    # Fallback final via tag <title>
+    # Fallback 3 final via tag <title>
     if not title or title.lower().startswith(('artigo', 'datagramazero')):
         t_tag = soup.find("title")
         if t_tag:
@@ -178,17 +194,16 @@ def parse_article_html(file_path: Path, folder_name: str) -> dict:
     if not title:
         title = f"Artigo {art_num:02d} ({header_meta['issue_label']})"
 
-    # 2. Autores
+    # 2. Autores (estritamente no cabeçalho antes do Resumo)
     authors = []
-    # Procura links diretos para âncora #Autor
-    for a_tag in soup.find_all("a", href=re.compile(r'#Autor', re.I)):
+    for a_tag in soup_head.find_all("a", href=re.compile(r'#Autor', re.I)):
         text_a = a_tag.get_text()
         if text_a and len(text_a.strip()) > 2:
             authors.extend(split_authors(text_a))
 
-    # Fallback procurando texto 'por <...>'
+    # Fallback procurando texto 'por <...>' no cabeçalho
     if not authors:
-        por_match = re.search(r'(?:por|by)\s+(?:<[^>]+>\s*)*([A-ZÀ-Ú][^<\n\r]+)', html, re.I)
+        por_match = re.search(r'(?:por|by)\s+(?:<[^>]+>\s*)*([A-ZÀ-Ú][^<\n\r]+)', head_html, re.I)
         if por_match:
             authors = split_authors(por_match.group(1))
 
@@ -384,7 +399,9 @@ def main():
         with open(CURATED_FALLBACK, "r", encoding="utf-8") as f:
             curated_list = json.load(f)
         for c in curated_list:
-            c["art_order"] = c.get("number", 1)
+            if "art_order" not in c:
+                m_order = re.search(r'-a(\d+)$', c.get("id", ""))
+                c["art_order"] = int(m_order.group(1)) if m_order else c.get("number", 1)
         raw_articles.extend(curated_list)
         print(f"📥 Reconciliação ABCDM (FCI/UnB) incorporada: +{len(curated_list)} artigos históricos")
 

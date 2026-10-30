@@ -5,10 +5,10 @@
   "scraped_at": "2026-10-16T12:12:36Z",
   "extractor_name": "dgz_harvester_v1",
   "extractor_version": "2.0.0",
-  "raw_data_sha256": "a6a8fe5aece32715243a2c0f9d95a98be493aba57590c176679501c57ccd4bec",
+  "raw_data_sha256": "352bcfe68e35eb3bb25183f3b550f47d5bd84fac5b7e64bdfbddcc3773527994",
   "health_level": "ORANGE",
-  "total_records": 485,
+  "total_records": 487,
   "missing_doi_count": 485,
   "missing_abstract_count": 10,
-  "notes": "Acervo histórico consolidado e higienizado da DataGramaZero - Revista de Ciência da Informação (1999-2015), contendo 96 edições em 16 volumes, resgatado a partir do arquivo original doado pelo Prof. Aldo de Albuquerque Barreto para preservação digital no CEDAP/UFRGS e reconciliado com a Base ABCDM da Faculdade de Ciência da Informação (FCI/UnB)."
+  "notes": "Acervo histórico integral dos 96 fascículos da revista DataGramaZero (1999-2015). Metadados censitários estruturados a partir do dump oficial cedido ao CEDAP/UFRGS e reconciliados contra a Base ABCDM (Faculdade de Ciência da Informação - FCI/UnB), incluindo a recuperação dos artigos ausentes no arquivo original dos fascículos de jun/2007 (REG 04265) e out/2015 (REG 11205)."
 }

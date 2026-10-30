@@ -7,7 +7,7 @@
   <a href="#-como-usar-os-dados"><img src="https://img.shields.io/badge/Formatos-SQLite_%7C_CSV_%7C_JSON-blue.svg" alt="Formatos"></a>
 </p>
 
-Base de dados bibliométrica aberta e acervo histórico completo dos 485 artigos e ensaios publicados na DataGramaZero - Revista de Ciência da Informação (1999–2015), periódico pioneiro de acesso aberto fundado pelo Prof. Aldo de Albuquerque Barreto e disponibilizado pela BRAN Org sob princípios FAIR e BOAI.
+Base de dados bibliométrica aberta e acervo histórico completo dos 487 artigos e ensaios publicados na DataGramaZero - Revista de Ciência da Informação (1999–2015), periódico pioneiro de acesso aberto fundado pelo Prof. Aldo de Albuquerque Barreto e disponibilizado pela BRAN Org sob princípios FAIR e BOAI.
 
 ---
 
@@ -20,8 +20,8 @@ Base de dados bibliométrica aberta e acervo histórico completo dos 485 artigos
 | Métrica / Atributo | Detalhes do Acervo |
 | :--- | :--- |
 | **Período Histórico** | 1999–2015 (16 Volumes, 96 Edições) |
-| **Total de Trabalhos** | **485 artigos científicos catalogados** |
-| **Textos Completos (PDF/HTML)** | Acervo histórico integral (485 artigos e ensaios, 1.765 arquivos preservados via CEDAP/UFRGS e reconciliação FCI/UnB) |
+| **Total de Trabalhos** | **487 artigos científicos catalogados** |
+| **Textos Completos (PDF/HTML)** | Acervo histórico integral (487 artigos e ensaios, 1.765 arquivos preservados via CEDAP/UFRGS e reconciliação FCI/UnB) |
 | **Integridade Criptográfica** | Hash SHA-256 por arquivo e rastreabilidade estrita (`provenance.json`) |
 | **Formatos Disponíveis** | SQLite3 (`.sqlite`), CSV (UTF-8 BOM), JSON, BibTeX (`.bib`), RIS (`.ris`) |
 | **Licença dos Dados** | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) (Uso acadêmico; vedada ingestão por IA comercial) |
