@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://doi.org/10.5281/zenodo.23593504"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.23593504.svg" alt="Zenodo DOI"></a>
-  <a href="#-síntese-do-acervo--governança"><img src="https://img.shields.io/badge/Confiabilidade-Em%20Averigua%C3%A7%C3%A3o-orange" alt="Confiabilidade"></a>
+  <a href="#-síntese-do-acervo--governança"><img src="https://img.shields.io/badge/Confiabilidade-Auditado%20e%20Validado-brightgreen" alt="Confiabilidade"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/Licen%C3%A7a-CC_BY--NC--SA_4.0-lightgrey.svg" alt="CC BY-NC-SA 4.0"></a>
   <a href="#-como-usar-os-dados"><img src="https://img.shields.io/badge/Formatos-SQLite_%7C_CSV_%7C_JSON-blue.svg" alt="Formatos"></a>
 </p>
@@ -14,7 +14,7 @@ Base de dados bibliométrica aberta e acervo histórico completo dos 487 artigos
 ## 📊 Síntese do Acervo & Governança
 
 > [!NOTE]
-> **Status de Confiabilidade:** 🟠 **Em Averiguação**  
+> **Status de Confiabilidade:** 🟢 **Auditado e Validado**  
 > 📌 **Diagnóstico Metodológico:** Acervo auditado e reconciliado contra a Base ABCDM (FCI/UnB), com recuperação das lacunas físicas de jun/2007 e out/2015, saneamento de metadados multilíngues e 99,6% de cobertura de resumos históricos.
 
 | Métrica / Atributo | Detalhes do Acervo |
