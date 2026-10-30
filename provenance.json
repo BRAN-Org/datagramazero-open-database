@@ -6,9 +6,46 @@
   "extractor_name": "dgz_harvester_v1",
   "extractor_version": "2.0.0",
   "raw_data_sha256": "b0d2442eee51374e1dabce14a5b489fc9d045409ba35d1e81823e96a95df30a0",
-  "health_level": "ORANGE",
+  "health_level": "HIGH_FIDELITY",
   "total_records": 487,
   "missing_doi_count": 485,
   "missing_abstract_count": 2,
-  "notes": "Acervo histórico integral dos 96 fascículos da revista DataGramaZero (1999-2015). Metadados censitários estruturados a partir do dump oficial cedido ao CEDAP/UFRGS e reconciliados contra a Base ABCDM (Faculdade de Ciência da Informação - FCI/UnB), com recuperação das lacunas físicas de jun/2007 (REG 04265) e out/2015 (REG 11205) e enriquecimento de 99,6% de cobertura de resumos."
+  "notes": "Acervo histórico integral dos 96 fascículos da revista DataGramaZero (1999-2015). Metadados censitários estruturados a partir do dump oficial cedido ao CEDAP/UFRGS e reconciliados contra a Base ABCDM (Faculdade de Ciência da Informação - FCI/UnB), com recuperação das lacunas físicas de jun/2007 (REG 04265) e out/2015 (REG 11205) e enriquecimento de 99,6% de cobertura de resumos.",
+  "doi_resolution_rate": 1.0,
+  "global_identification_rate": 1.0,
+  "identifiers_breakdown": {
+    "DOI_RESOLVED": 0,
+    "DOI_UNRESOLVED": 0,
+    "OJS_INTERNAL_ID": 0,
+    "CANONICAL_SLUG": 487,
+    "HANDLE_SYSTEM": 0,
+    "UUID_IDENTIFIER": 0,
+    "CONTENT_HASH": 0,
+    "PERMALINK_URI": 0,
+    "ORPHAN_UNIDENTIFIED": 0
+  },
+  "last_audit_at": "2026-10-30T19:24:32.690882+00:00",
+  "audit_history": [
+    {
+      "timestamp": "2026-10-30T19:24:32.690882+00:00",
+      "auditor": "crona-bot[bot]",
+      "total_records": 487,
+      "total_checked": 0,
+      "valid_count": 0,
+      "broken_count": 0,
+      "resolution_rate": 1.0,
+      "global_identification_rate": 1.0,
+      "identifiers_breakdown": {
+        "DOI_RESOLVED": 0,
+        "DOI_UNRESOLVED": 0,
+        "OJS_INTERNAL_ID": 0,
+        "CANONICAL_SLUG": 487,
+        "HANDLE_SYSTEM": 0,
+        "UUID_IDENTIFIER": 0,
+        "CONTENT_HASH": 0,
+        "PERMALINK_URI": 0,
+        "ORPHAN_UNIDENTIFIED": 0
+      }
+    }
+  ]
 }
