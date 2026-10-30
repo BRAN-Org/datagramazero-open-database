@@ -15,7 +15,7 @@ Base de dados bibliométrica aberta e acervo histórico completo dos 487 artigos
 
 > [!NOTE]
 > **Status de Confiabilidade:** 🟠 **Em Averiguação**  
-> 📌 **Diagnóstico Metodológico:** Acervo em processo de auditoria cruzada contra a Base ABCDM (FCI/UnB) para reconciliação de fascículos com lacunas físicas identificadas no dump original do CEDAP/UFRGS (especialmente edições de 2013 e 2014) e saneamento de metadados multilíngues.
+> 📌 **Diagnóstico Metodológico:** Acervo auditado e reconciliado contra a Base ABCDM (FCI/UnB), com recuperação das lacunas físicas de jun/2007 e out/2015, saneamento de metadados multilíngues e 99,6% de cobertura de resumos históricos.
 
 | Métrica / Atributo | Detalhes do Acervo |
 | :--- | :--- |

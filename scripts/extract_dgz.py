@@ -94,6 +94,7 @@ def split_authors(author_str: str) -> list:
         p = clean_html_text(p)
         p = re.sub(r'^(?:por|by)\s+', '', p, flags=re.IGNORECASE).strip()
         p = p.rstrip(',. ')
+        p = re.sub(r'[\d\*\[\]]+$', '', p).strip()
         # Filtra tokens espúrios, cabeçalhos ou referências bibliográficas com anos
         if len(p) > 2 and not p.lower().startswith(('resumo', 'resumen', 'abstract', 'autor')) and not re.search(r'\b\d{4}\b', p):
             authors.append(p)
@@ -131,7 +132,7 @@ def parse_article_html(file_path: Path, folder_name: str) -> dict:
     art_num = int(art_match.group(1)) if art_match else 1
 
     # Isola o cabeçalho antes da seção de Resumo para evitar vazamento de dados do corpo/bibliografia
-    resumo_pos_match = re.search(r'<b>\s*Resum(?:o|en)', html, re.I)
+    resumo_pos_match = re.search(r'<b>(?:\s*<[^>]+>)*\s*Resum(?:o|en)', html, re.I)
     head_html = html[:resumo_pos_match.start()] if resumo_pos_match else html
     soup_head = BeautifulSoup(head_html, "html.parser")
     soup = BeautifulSoup(html, "html.parser")
@@ -212,35 +213,35 @@ def parse_article_html(file_path: Path, folder_name: str) -> dict:
 
     # 3. Resumo em Português / Espanhol
     abstract = None
-    resumo_pattern = r'<b>\s*Resum(?:o|en)[\*:\s&nbsp;]*</b>\s*(?:&nbsp;)?\s*:?\s*(.*?)(?:<b>\s*Palabras|<b>\s*Palavras[- ]chave|<b>\s*Abstract|<b>\s*Keywords|<p>\s*<b>|<hr>|$)'
+    resumo_pattern = r'<b>(?:\s*<[^>]+>)*\s*Resum(?:o|en)[\*:\s&nbsp;]*(?:<[^>]+>)*\s*</b>\s*(?:&nbsp;)?\s*:?\s*(.*?)(?:<b>(?:\s*<[^>]+>)*\s*Palabras|<b>(?:\s*<[^>]+>)*\s*Palavras[- ]chave|<b>(?:\s*<[^>]+>)*\s*Abstract|<b>(?:\s*<[^>]+>)*\s*Keywords|<p>\s*<b>|<hr>|$)'
     resumo_match = re.search(resumo_pattern, html, re.IGNORECASE | re.DOTALL)
     if resumo_match:
         abstract = clean_html_text(resumo_match.group(1))
 
     # 4. Palavras-chave / Palabras clave
     keywords = []
-    kw_pattern = r'<b>\s*Palavr?as?[- ]ch?aves?[\*:\s&nbsp;]*</b>\s*(?:&nbsp;)?\s*:?\s*(.*?)(?:<b>\s*Abstract|<b>\s*Keywords|<p>\s*<b>|<hr>|$)'
+    kw_pattern = r'<b>(?:\s*<[^>]+>)*\s*Palavr?as?[- ]ch?aves?[\*:\s&nbsp;]*(?:<[^>]+>)*\s*</b>\s*(?:&nbsp;)?\s*:?\s*(.*?)(?:<b>(?:\s*<[^>]+>)*\s*Abstract|<b>(?:\s*<[^>]+>)*\s*Keywords|<p>\s*<b>|<hr>|$)'
     kw_match = re.search(kw_pattern, html, re.IGNORECASE | re.DOTALL)
     if kw_match:
         kw_raw = clean_html_text(kw_match.group(1))
         parts = re.split(r'[;,\.]\s*', kw_raw)
-        keywords = [p.strip() for p in parts if len(p.strip()) > 2]
+        keywords = [p.strip().rstrip('. ') for p in parts if 2 < len(p.strip()) <= 80]
 
     # 5. Abstract em Inglês
     abstract_en = None
-    absen_pattern = r'<b>\s*Abstract[\*:\s&nbsp;]*</b>\s*(?:&nbsp;)?\s*:?\s*(.*?)(?:<b>\s*Keywords|<b>\s*Palavras|<p>\s*<b>|<hr>|<p>&nbsp;</p>|$)'
+    absen_pattern = r'<b>(?:\s*<[^>]+>)*\s*Abstract[\*:\s&nbsp;]*(?:<[^>]+>)*\s*</b>\s*(?:&nbsp;)?\s*:?\s*(.*?)(?:<b>(?:\s*<[^>]+>)*\s*Keywords|<b>(?:\s*<[^>]+>)*\s*Palavras|<p>\s*<b>|<hr>|<p>&nbsp;</p>|$)'
     absen_match = re.search(absen_pattern, html, re.IGNORECASE | re.DOTALL)
     if absen_match:
         abstract_en = clean_html_text(absen_match.group(1))
 
     # 6. Keywords em Inglês
     keywords_en = []
-    kwen_pattern = r'<b>\s*Keywords[\*:\s&nbsp;]*</b>\s*(?:&nbsp;)?\s*:?\s*(.*?)(?:<p>\s*<b>|<hr>|<p>&nbsp;</p>|$)'
+    kwen_pattern = r'<b>(?:\s*<[^>]+>)*\s*Keywords[\*:\s&nbsp;]*(?:<[^>]+>)*\s*</b>\s*(?:&nbsp;)?\s*:?\s*(.*?)(?:<p>\s*<b>|<hr>|<p>&nbsp;</p>|$)'
     kwen_match = re.search(kwen_pattern, html, re.IGNORECASE | re.DOTALL)
     if kwen_match:
         kwen_raw = clean_html_text(kwen_match.group(1))
         parts = re.split(r'[;,\.]\s*', kwen_raw)
-        keywords_en = [p.strip() for p in parts if len(p.strip()) > 2]
+        keywords_en = [p.strip().rstrip('. ') for p in parts if 2 < len(p.strip()) <= 80]
 
     # Mapeamento de PDF companheiro (edições 2012-2015)
     pdf_url = None
@@ -431,12 +432,68 @@ def main():
 
         final_articles.append(art)
 
+    # Enriquecimento censitário com Base ABCDM (FCI/UnB) para resumos e palavras-chave ausentes
+    enrich_from_abcdm(final_articles)
+
     print(f"\n✅ Total de artigos estruturados e consolidados: {len(final_articles)}")
 
     with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
         json.dump(final_articles, f, ensure_ascii=False, indent=2)
 
     print(f"📁 Dataset canônico salvo em: {OUTPUT_JSON}")
+
+def enrich_from_abcdm(articles: list):
+    """Enriquece resumos e palavras-chave ausentes a partir da Base ABCDM (FCI/UnB)."""
+    excel_paths = [
+        Path("/home/gabrielgama/.gemini/antigravity/brain/a1bdb8cb-79e0-43eb-8fc0-8635d33fdca2/scratch/Dados-ABCDM-1963-2017.xlsx"),
+        BASE_DIR / "Dados-ABCDM-1963-2017.xlsx",
+        BASE_DIR.parent / "Dados-ABCDM-1963-2017.xlsx",
+    ]
+    excel_file = next((p for p in excel_paths if p.exists()), None)
+    if not excel_file:
+        return
+    try:
+        import openpyxl
+        import unicodedata
+        wb = openpyxl.load_workbook(excel_file, read_only=True)
+        sheet = wb["REG"]
+        abcdm_dict = {}
+        for row in sheet.iter_rows(values_only=True):
+            fonte = str(row[4]).strip() if len(row) > 4 and row[4] else ""
+            if "datagrama" in fonte.lower():
+                tit = str(row[3]) if len(row) > 3 and row[3] else ""
+                if not tit:
+                    continue
+                s = unicodedata.normalize("NFKD", tit)
+                k = re.sub(r"[^a-z0-9]", "", "".join(c for c in s if not unicodedata.combining(c)).lower())
+                res = str(row[12]).strip() if len(row) > 12 and row[12] else None
+                kw_raw = str(row[11]).strip() if len(row) > 11 and row[11] else None
+                kws = [p.strip().rstrip('. ') for p in kw_raw.split(";") if len(p.strip()) > 1] if kw_raw else []
+                reg = str(row[0]).strip() if row[0] else ""
+                if k not in abcdm_dict:
+                    abcdm_dict[k] = {"resumo": res, "keywords": kws, "reg": reg}
+                else:
+                    if res and len(res) > len(abcdm_dict[k].get("resumo") or ""):
+                        abcdm_dict[k]["resumo"] = res
+                    if kws and len(kws) > len(abcdm_dict[k].get("keywords") or []):
+                        abcdm_dict[k]["keywords"] = kws
+
+        abs_count = 0
+        kw_count = 0
+        for a in articles:
+            s = unicodedata.normalize("NFKD", a.get("title", ""))
+            k = re.sub(r"[^a-z0-9]", "", "".join(c for c in s if not unicodedata.combining(c)).lower())
+            if k in abcdm_dict:
+                cand = abcdm_dict[k]
+                if (not a.get("abstract") or len(str(a.get("abstract")).strip()) < 20) and cand["resumo"] and len(cand["resumo"]) >= 20:
+                    a["abstract"] = cand["resumo"]
+                    abs_count += 1
+                if (not a.get("keywords") or len(a.get("keywords")) == 0) and cand["keywords"] and len(cand["keywords"]) > 0:
+                    a["keywords"] = cand["keywords"]
+                    kw_count += 1
+        print(f"📊 Enriquecimento Base ABCDM (FCI/UnB): +{abs_count} resumos, +{kw_count} conjuntos de palavras-chave")
+    except Exception as e:
+        print(f"⚠️  Aviso ao carregar Base ABCDM: {e}")
 
 if __name__ == "__main__":
     main()
